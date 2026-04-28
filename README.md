@@ -1,43 +1,71 @@
 # Text Cleaner
 
-A simple browser-based tool to clean and transform text quickly.
+> A calm, focused text cleanup tool for quick paste, clean, copy workflows.
 
-## Features
+Live demo: https://cletrix.netlify.app/
 
-- Live input character and word count
-- Live output word count
-- Actions: Clean Text, Fix Case, Make Bullets, Remove Symbols, Reset
-- Optional Auto Clean while typing
-- Optional Keep original line breaks
-- One-step Undo Last Action
+Text Cleaner is a static browser app with a split workspace: input on the left, a centered clean action, and output on the right. It is designed for the simple flow of **open → paste → click → done**.
+
+## Highlights
+
+- Clean Text
+- Fix Case
+- Remove Symbols
+- Make Bullets
 - Paste from clipboard
-- Copy output with temporary "Copied!" feedback
-- Download output as `.txt`
-- Clear output
-- Dark/Light theme toggle
-- Disabled actions when no text is available
+- Clear Input
+- Copy output with `Copied ✓` feedback
+- Download cleaned text as `.txt`
+- Clear Output
 
-## Run
+## How it works
 
-1. Run a local server from this folder, for example:
+1. Paste or type text into the input panel.
+2. Use the large `Clean Text` button or one of the smaller text actions.
+3. Review the result in the output panel.
+4. Copy, download, or clear the output when you are done.
 
-	```bash
-	python3 -m http.server 5500
-	```
+## Layout
 
-2. Open `http://localhost:5500` in a browser.
-3. Type or paste text in the input area.
-4. Use the action buttons to process text.
+- Left: input area with small helper tools
+- Center: primary action rail with `Clean Text`
+- Right: output area with copy, download, and clear buttons
+- Mobile: the panels stack vertically for a narrow screen
+
+## Run locally
+
+1. Start a local server from this folder:
+
+   ```bash
+   python3 -m http.server 5500
+   ```
+
+2. Open `http://localhost:5500` in your browser.
+3. Paste some text and try the actions.
 
 No build step or dependencies are required.
 
+## Tech
+
+- HTML
+- CSS
+- Vanilla JavaScript
+
 ## Deploy
 
-Recommended simple options for deploying this static app:
+This repo is ready for simple static hosting:
 
-- GitHub Pages (automatic): I added a GitHub Action that publishes the repository root on every push to `main`. Enable Pages in the repo settings if required; the workflow will create/update the Pages site automatically.
-- Vercel: Connect the repo to Vercel and it will deploy automatically (good for previews and branches).
-- Netlify: This repo now includes `netlify.toml`, so you can connect the GitHub repo to Netlify and deploy the site with `publish = "."`.
-- Surge: Quick single-command deploys for static folders.
+- GitHub Pages: a workflow can publish the repository root on pushes to `main`.
+- Netlify: `netlify.toml` points the publish directory at the repo root.
 
-If you want, I can also add a Netlify redirect file or a custom domain config next.
+## Project files
+
+- `index.html` - app layout
+- `styles.css` - dark UI styling
+- `script.js` - text actions and button behavior
+
+## Live App
+
+Text Cleaner is deployed on Netlify:
+
+- https://cletrix.netlify.app/
