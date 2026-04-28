@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Cleaner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="header-left">
+          <h1><span class="title-icon" aria-hidden="true">🧹</span> Text Cleaner</h1>
+          <p class="sub">Clean your text in seconds</p>
+        </div>
+        <div class="header-right">
+          <button id="themeToggle" class="ghost-btn small" type="button" aria-label="Toggle theme">🌙</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <h2>Clean your messy text instantly</h2>
+        <p>Paste your text and fix formatting in seconds</p>
+      </section>
+
+      <section class="card" aria-label="Text cleaner card">
+        <div class="top-row" aria-live="polite">
+          <div class="metric">
+            <span class="metric-label">Input Characters</span>
+            <strong id="inputCharCount">0</strong>
+          <div class="controls-wrap">
+            <!-- Primary single action area -->
+            <div class="primary-action">
+              <div class="input-row">
+                <textarea id="inputText" class="input-area" placeholder="Paste or type text here..."></textarea>
+                <div class="primary-controls">
+                  <button id="pasteBtn" class="ghost-btn" type="button">Paste</button>
+                  <button id="cleanBtn" class="action-btn primary-btn large" type="button" disabled>Clean Text</button>
+                </div>
+              </div>
+              <div class="more-wrap">
+                <button id="moreOptionsBtn" class="ghost-btn" type="button">More options ▾</button>
+              </div>
+            </div>
+
+            <!-- Advanced options (hidden by default) -->
+            <div id="advancedOptions" class="advanced-options" hidden>
+              <div class="options-row">
+                <label class="check-wrap" for="lineBreaksCheckbox">
+                  <input id="lineBreaksCheckbox" type="checkbox" />
+                  <span>Keep original line breaks</span>
+                </label>
+                <label class="switch-wrap" for="autoCleanToggle">
+                  <span>Auto Clean</span>
+                  <button id="autoCleanToggle" class="switch" type="button" role="switch" aria-checked="false" aria-label="Toggle auto clean">
+                    <span class="switch-knob"></span>
+                  </button>
+                </label>
+                <button id="undoBtn" class="ghost-btn" type="button" disabled>Undo Last Action</button>
+              </div>
+
+              <div class="button-groups small-groups" aria-label="Advanced Actions">
+                <div class="group">
+                  <h3>Formatting</h3>
+                  <div class="btn-row">
+                    <button id="caseBtn" class="action-btn secondary-btn" type="button" disabled>Fix Case</button>
+                  </div>
+                </div>
+
+                <div class="group">
+                  <h3>Transform</h3>
+                  <div class="btn-row">
+                    <button id="bulletsBtn" class="action-btn secondary-btn" type="button" disabled>Make Bullets</button>
+                    <button id="symbolsBtn" class="action-btn secondary-btn" type="button" disabled>Remove Symbols</button>
+                  </div>
+                </div>
+
+                <div class="group">
+                  <h3>Action</h3>
+                  <div class="btn-row">
+                    <button id="resetBtn" class="danger-btn" type="button" disabled>Reset</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end advanced -->
+            <label class="check-wrap" for="lineBreaksCheckbox">
+          <div class="section output-section">
+            <div class="section-head">
+              <label for="outputText">Result</label>
+              <span class="hint" id="statusMessage">Output will appear here...</span>
+            </div>
+            <textarea id="outputText" class="output-area" readonly placeholder="Processed text will appear here..."></textarea>
+
+            <div class="bottom-actions">
+              <button id="copyBtn" class="action-btn secondary-btn" type="button" disabled>Copy</button>
+              <button id="downloadBtn" class="action-btn secondary-btn" type="button" disabled>Download (.txt)</button>
+              <button id="clearOutputBtn" class="ghost-btn" type="button" disabled>Clear Output</button>
+            </div>
+          </div>
+            <span class="hint" id="statusMessage">Output will appear here...</span>
+          </div>
+          <textarea id="outputText" class="output-area" readonly placeholder="Processed text will appear here..."></textarea>
+        </div>
+
+        <div class="bottom-actions">
+          <button id="copyBtn" class="action-btn secondary-btn" type="button" disabled>Copy</button>
+          <button id="downloadBtn" class="action-btn secondary-btn" type="button" disabled>Download (.txt)</button>
+          <button id="clearOutputBtn" class="ghost-btn" type="button" disabled>Clear Output</button>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <p>Simple text tool for everyday use</p>
+        <a href="https://github.com/imDarshanGK/Text-Cleaner" target="_blank" rel="noreferrer">GitHub</a>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
