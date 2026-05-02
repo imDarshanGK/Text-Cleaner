@@ -1,5 +1,8 @@
 const inputText = document.getElementById("inputText");
 const outputText = document.getElementById("outputText");
+const outputWrap = document.getElementById("outputWrap");
+const inputWordCount = document.getElementById("inputWordCount");
+const inputCharCount = document.getElementById("inputCharCount");
 
 const pasteBtn = document.getElementById("pasteBtn");
 const clearInputBtn = document.getElementById("clearInputBtn");
@@ -53,7 +56,35 @@ function readClipboardTextFallback() {
 
 function setOutput(value) {
   outputText.value = value;
+  updateOutputState();
   updateButtonStates();
+  updateCounts();
+}
+
+function updateOutputState() {
+  const hasOutput = Boolean(outputText.value.trim());
+
+  if (outputWrap) {
+    outputWrap.setAttribute("data-empty", hasOutput ? "false" : "true");
+  }
+
+  if (outputText) {
+    outputText.classList.toggle("has-content", hasOutput);
+  }
+}
+
+function updateCounts() {
+  const inputValue = inputText.value.trim();
+  const wordTotal = inputValue ? inputValue.split(/\s+/).filter(Boolean).length : 0;
+  const charTotal = inputText.value.length;
+
+  if (inputWordCount) {
+    inputWordCount.textContent = String(wordTotal);
+  }
+
+  if (inputCharCount) {
+    inputCharCount.textContent = String(charTotal);
+  }
 }
 
 function applyFromInput(transform) {
@@ -79,6 +110,8 @@ function updateButtonStates() {
   if (copyBtn) copyBtn.disabled = !hasOutput;
   if (downloadBtn) downloadBtn.disabled = !hasOutput;
   if (clearOutputBtn) clearOutputBtn.disabled = !hasOutput;
+
+  updateCounts();
 }
 
 if (inputText) {
@@ -185,8 +218,11 @@ if (downloadBtn) {
 if (clearOutputBtn) {
   clearOutputBtn.addEventListener("click", () => {
     outputText.value = "";
+    updateOutputState();
     updateButtonStates();
   });
 }
 
+updateOutputState();
 updateButtonStates();
+updateCounts();
