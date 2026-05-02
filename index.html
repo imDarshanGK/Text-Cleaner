@@ -21,11 +21,23 @@
         <p class="eyebrow">Text Cleaner</p>
         <h1>Text Cleaner</h1>
         <p class="subhead">Clean your text in seconds</p>
+        <div class="hero-tags" aria-label="Highlights">
+          <span class="hero-tag">Live counts</span>
+          <span class="hero-tag">One-click cleanup</span>
+          <span class="hero-tag">Copy or download</span>
+        </div>
       </header>
 
       <section class="workspace" aria-label="Text cleaning workspace">
         <section class="panel input-panel" aria-label="Input text">
-          <label for="inputText">Input</label>
+          <div class="panel-head">
+            <label for="inputText">Input</label>
+            <span class="panel-note">Paste or type your text</span>
+          </div>
+          <div class="panel-stats" aria-label="Input stats">
+            <span class="stat-chip"><strong id="inputWordCount">0</strong> words</span>
+            <span class="stat-chip"><strong id="inputCharCount">0</strong> chars</span>
+          </div>
           <textarea id="inputText" class="input-area" placeholder="Paste your text here..."></textarea>
           <div class="tool-row" aria-label="Input tools">
             <button id="pasteBtn" class="secondary-btn" type="button">Paste</button>
@@ -34,21 +46,34 @@
         </section>
 
         <section class="action-rail" aria-label="Text actions">
-          <button id="cleanBtn" class="primary-btn primary-btn-large" type="button" disabled>Clean Text</button>
-          <div class="tool-stack" aria-label="Secondary text actions">
-            <button id="caseBtn" class="secondary-btn" type="button" disabled>Fix Case</button>
-            <button id="symbolsBtn" class="secondary-btn" type="button" disabled>Remove Symbols</button>
-            <button id="bulletsBtn" class="secondary-btn" type="button" disabled>Make Bullets</button>
+          <div class="control-panel" aria-label="Control panel">
+            <div class="control-copy">
+              <p class="control-eyebrow">Quick actions</p>
+              <h2>Clean without breaking your flow</h2>
+              <p>Pick a cleanup mode, then copy the result or export it as a text file.</p>
+            </div>
+            <button id="cleanBtn" class="primary-btn primary-btn-large" type="button" disabled>🧹 Clean Text</button>
+            <div class="tool-stack" aria-label="Secondary text actions">
+              <button id="caseBtn" class="secondary-btn" type="button" disabled>Fix Case</button>
+              <button id="symbolsBtn" class="secondary-btn" type="button" disabled>Remove Symbols</button>
+              <button id="bulletsBtn" class="secondary-btn" type="button" disabled>Make Bullets</button>
+            </div>
           </div>
         </section>
 
         <section class="panel output-panel" aria-label="Output text">
-          <label for="outputText">Output</label>
-          <textarea id="outputText" class="output-area" readonly placeholder="Processed text appears here..."></textarea>
+          <div class="panel-head">
+            <label for="outputText">Output</label>
+            <span class="result-badge">Ready</span>
+          </div>
+          <p class="panel-note">Your cleaned text appears here and stays editable.</p>
+          <div id="outputWrap" class="output-wrap" data-empty="true">
+            <textarea id="outputText" class="output-area" readonly placeholder=""></textarea>
+          </div>
           <div class="tool-row" aria-label="Output tools">
-            <button id="copyBtn" class="secondary-btn" type="button" disabled>Copy</button>
-            <button id="downloadBtn" class="secondary-btn" type="button" disabled>Download</button>
-            <button id="clearOutputBtn" class="secondary-btn" type="button" disabled>Clear</button>
+            <button id="copyBtn" class="secondary-btn output-btn" type="button" disabled>Copy</button>
+            <button id="downloadBtn" class="secondary-btn output-btn" type="button" disabled>Download</button>
+            <button id="clearOutputBtn" class="secondary-btn output-btn" type="button" disabled>Clear</button>
           </div>
         </section>
       </section>
